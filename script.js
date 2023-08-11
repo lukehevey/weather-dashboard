@@ -40,7 +40,7 @@ function saveCity(city) {
 
 // The city is fetched from the open weather API 
 function cityFetch(city) {
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=edb70a0e0ba7f9d39d09f54d702e76c0&units=imperial";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=edb70a0e0ba7f9d39d09f54d702e76c0&units=imperial";
     fetch(queryURL)
         .then(function (response) {
             return response.json()
@@ -93,7 +93,7 @@ var icon;
 
 // Function that uses the API with lat and lon in order to get the five day forecast
 function forecastFetch(lat, lon) {
-    var URL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=edb70a0e0ba7f9d39d09f54d702e76c0&units=imperial"
+    var URL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=edb70a0e0ba7f9d39d09f54d702e76c0&units=imperial"
     fetch(URL)
         .then(function (response) {
             return response.json()
