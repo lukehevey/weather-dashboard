@@ -11,7 +11,6 @@ var searchHistoryEl = document.getElementById("search-history")
 var fiveCardsEl = document.getElementById("five-cards")
 var IconEl = document.querySelector('.icon')
 
-// var APIKey = edb70a0e0ba7f9d39d09f54d702e76c0
 
 // Display history function is called on page load
 displayHistory()
