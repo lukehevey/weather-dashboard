@@ -9,7 +9,7 @@ var fiveDayEl = document.getElementById("five-forecast")
 var weatherDayEl = document.getElementById("current-weather")
 var searchHistoryEl = document.getElementById("search-history")
 var fiveCardsEl = document.getElementById("five-cards")
-var IconEl = document.getElementById('icon')
+var IconEl = document.querySelector('.icon')
 
 // var APIKey = edb70a0e0ba7f9d39d09f54d702e76c0
 
@@ -107,7 +107,9 @@ function forecastFetch(lat, lon) {
 
                     var card = document.createElement("div")
                     var date = data.list[i].dt_txt
-                    var dateFormat = moment(date).format('MM/DD/YYYY')
+                    var dateFormat = moment(date).format('MM/DD/YYYY') 
+                    icon = iconURL + data.list[i].weather[0].icon + '.png'
+                    var iconForm = document.createElement("img")
                     var temp = document.createElement("p")
                     var wind = document.createElement("p")
                     var humid = document.createElement("p")
@@ -116,8 +118,9 @@ function forecastFetch(lat, lon) {
                     dateFormat.textContent = data.list[i].dt_txt
                     card.append(dateFormat)
 
-                    console.log(iconURL + data.list[i].weather[0].icon + '.png')
-                    icon = iconURL + data.list[i].weather[0].icon + '.png'
+                    console.log(icon)
+                    iconForm.setAttribute('src', icon)
+                    card.append(iconForm)
                     
                    
                     temp.textContent = "Temp: " + data.list[i].main.temp + "°F"
@@ -130,6 +133,7 @@ function forecastFetch(lat, lon) {
                     card.append(humid)
 
                     fiveCardsEl.append(card)
+                    card.classList.add("icon")
                     card.classList.add("card")
                     card.classList.add("row")
                     card.classList.add("col-md-2")
@@ -137,6 +141,7 @@ function forecastFetch(lat, lon) {
                     card.classList.add("bg-secondary")
                     card.classList.add("m-3")
                 }
+                
             } 
         })
         .then(() => {
